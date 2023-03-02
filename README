@@ -1,0 +1,57 @@
+Nicolae Alexandru-Dimitrie Grupa 321CD
+Tema 1:Liste
+
+
+    In functia open_train_station,am creat o variabila de tip pointer la TrainStation,alocandu-i memorie,verificand daca este pointer nul si setandu-i numarul de peroane,apoi am alocat
+un vector de peroane si am verificat daca acesta este pointer nul.
+
+    In functia close_train_station,am verificat daca pointerul primit ca parametru este nul,iar apoi am parcurs vectorul de peroane am dezalocat memorie pentru fiecare vagon si pentru
+fiecare peron,iar in final am dezalocat memorie pentru vectorul de peroane si pentru gara.
+
+    In functia show_existing_trains,am afisat trenurile stationate din gara primita ca parametru in fisierul primit ca parametru.Afisarea a fost facuta dupa modelul din cerinta,afisand
+intai numarul peronului,dupa care puterea locomotivei si dupa am parcurs vectorul de vagoane si am afisat greutatea fiecarui vagon.
+
+    In functia arrive_train,intai verific daca gara primita ca parametru este un pointer nul,apoi verific daca numarul peronului primit ca parametru este mai mic decat 0 sau depaseste
+numarul de peroane.Daca una dintre cele 2 conditii enuntate precedent nu este indeplinita,se adauga locomotiva pe peron.
+
+    In functia leave_train,efectuez aceleasi verificari ca in functia arrive_train,iar daca una dintre cele 2 conditii nu au fost indeplinite,parcurg vectorul de vagoane si dezaloc 
+memoria fiecarui vagon legat de locomotiva,iar apoi dezaloc memoria locomotivei.
+
+    In functia add_train_car,efectuez aceleasi verificari ale cazurilor limita ca in functia arrive_train,doar ca in plus mai verific daca pointerul corespunzator numarului de peron
+primit ca parametru este nul.Dupa aceea,daca niciuna din conditiile enuntate precedent nu este indeplinita,verific daca trenul mai are vagoane legate de el,in caz negativ,aloc memorie 
+pentru vectorul de vagoane si ii setez campurile,iar in caz afirmativ parcurg vectorul de vagoane si adaug vagonul la finalul acestuia.
+
+    In functia remove_train_cars,se efectueaza aceleasi verificari ale cazurilor limita ca in functia add_train_car,doar ca se mai verifica si daca vectorul de vagoane de la peronul 
+primit ca parametru este nul.Apoi,parcurg vectorul de vagoane si caut vagonul care trebuie scos,verificand ca greutatea acestuia sa fie egala cu greutatea data ca parametru.In caz 
+afirmativ,apoi efectuez o eliminare diferita in cazul in care vagonul este primul,iar daca nu este primul tot este eliminat folosind variabila prev de tip TrainCar*.In caz negativ,
+vagonul nu trebuie eliminat si se trece la urmatorul.
+
+    In functia move_train_cars,verific intai cazurle limita,apoi numar vagoanele de pe peronul b si peronul a si verific daca parametrii de pozitie sisunt intre cazurile de exceptie.
+Dupa aceea,calculez vagonul de inceput din secventa ce trebuie mutata si pe cel de la final,ca apoi sa sterg legaturile de pe peronul a dupa extragerea secventei ce trebuie mutata.
+In final,adaug secventa ce trebuie mutata de pe peronul a pe pozitia corespunzatoare de pe peronul b.
+
+    In functia find_express_train,verific intai daca pointerul de tip TrainStation primit ca parametru este nul.Apoi,se parcurge vectorul de peroane si se verifica daca trenul are 
+vagoane,iar in caz negativ diferenta maxima este egala cu puterea locomotivei si se retine pozitia in variabila numita peron,pe de alta parte,in caz afirmativ,se parcurge vectorul 
+de vagoane pentru a calcula suma greutatii acestora,iar apoi se calculeaza diferenta maxima prin scaderea sumei greutatilor din puterea locomotivei,retinandu-se pozitia in variabila 
+numita peron.
+
+    In functia find_overload_train,se efectuaza aceaasi verificare initiala ca in functia precedenta,iar apoi se parcurge vectorul de vagoane pentru a calcula suma greutatilor acestora.
+In final,se verifica daca suma greutatii vagoanelor este mai mare decat puterea locomotivei,iar in acest caz se returneaza pozitia peronului pe care a avut loc overload-ul din vectorul 
+de peroane.
+
+    Functia find_optimal_train se implemnteaza asemanator cu functia find_express_train,doar ca in loc sa se returneze pozitia peronului cu diferenta maxima dintre puterea locomotivei 
+si suma greutatilor vagoanelor se cere sa se returneze pozitia peronului cu diferenta minima.
+
+    In functia find_heaviest_sequence_train,se verifica exceptiile si dupase parcurge vectorul de peroane si pentru fiecare peron, apoi se parcurge vectorul de vagoane, si pentru 
+fiecare vagon se calculeaza suma greutatilor pentru urmatoarele cars_no vagoane,si se gaseste cea mai grea secventa de vagoane,returnandu-se pozitia peronului ,din vectorul de peroane, 
+pe care se gaseste cea mai grea secventa de vagoane.
+
+    Pentru functia order_train,am implementat o functie auxiliara numita sortList ce efectuaza un bubble sort in ordine descrescatoare pe o lista inlantuita data ca parametru,care la 
+randul ei necesita o functie auxiliara de swap ce interschimba greutatile a doua noduri date ca parametru.Apoi,se verifica in functia order_train cazurile de exceptie si se apeleaza
+functia sortList cu parametrul vectorul de vagoane de pe peronul platform pentru a sorta in ordine descrescatoare greutatile vagoanelor.
+
+    In functia fix_overload_train,se verifica intai cazul limita,apoi se retine in variabila peron rezultatul returnat de functia find_overload_train si se verifica cazurile limita 
+pentru variabila peron.Dupa aceea, se calculeaza numarul de vagoane din vectorul de vagoane.Apoi,retin intr-un vector optimalWeights suma greutatilor celorlalte vagoane diferite de 
+cel de pe pozitia i din vector,iar dupa aceea calculez diferenta minima dintre puterea locomotivei si suma greutatilor celorlalte vagoane fara unul anume,iar cand se gaseste aceasta 
+diferenta minima se retine in variabila found pozitia vagonului ce trebuie eliminat.In final se elimina vagonul asemanator cu ceea ce am facut la functia remove_train_cars.
+    
